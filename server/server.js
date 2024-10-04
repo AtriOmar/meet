@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const http = require("http");
 const socketIo = require("socket.io");
@@ -7,7 +8,7 @@ const attachEvents = require("./attachEvents");
 const app = express();
 
 const corsOptions = {
-  origins: ["http://localhost:5173", "http://192.168.1.5:5173", "http://192.168.100.24:5173"],
+  origins: [process.env.APP_URL, "http://192.168.1.5:5173", "http://192.168.100.24:5173"],
 };
 
 app.use(cors(corsOptions));
@@ -17,7 +18,7 @@ global.rooms = new Map();
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-    origin: ["http://localhost:5173", "http://192.168.1.5:5173", "http://192.168.100.24:5173"],
+    origin: [process.env.APP_URL, "http://192.168.1.5:5173", "http://192.168.100.24:5173"],
   },
 });
 
