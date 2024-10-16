@@ -122,7 +122,18 @@ export default function Room({ room, setJoinRoom }) {
     // ----------------------------------------------------------------------------
     socket.on("signal", ({ sender, signal }) => {
       console.log("incoming signle", sender, signal);
-      const peer = new SimplePeer({ initiator: false, trickle: true, stream: localStream });
+      const peer = new SimplePeer({
+        initiator: false,
+        trickle: true,
+        stream: localStream,
+        config: {
+          iceServers: [
+            {
+              urls: "stun:stun.l.google.com:19302",
+            },
+          ],
+        },
+      });
 
       peer.on("signal", (data) => {
         socket.emit("return-signal", { signal: data, userToSignal: sender });
