@@ -74,12 +74,12 @@ export default function Room({ room, setJoinRoom }) {
         config: {
           iceServers: [
             {
-              urls: "stun:stun.omaratri.com:443",
+              urls: "stun:stun.omaratri.com:3478",
             },
             {
-              urls: "turn:stun.omaratri.com:443",
-              username: "atri",
-              credential: "atriVPS2003",
+              urls: "turn:stun.omaratri.com:3478",
+              username: "AtriStun",
+              credential: "AtriVPS2003",
             },
           ],
         },
@@ -134,12 +134,12 @@ export default function Room({ room, setJoinRoom }) {
         config: {
           iceServers: [
             {
-              urls: "stun:stun.omaratri.com:443",
+              urls: "stun:stun.omaratri.com:3478",
             },
             {
-              urls: "turn:stun.omaratri.com:443",
-              username: "atri",
-              credential: "atriVPS2003",
+              urls: "turn:stun.omaratri.com:3478",
+              username: "AtriStun",
+              credential: "AtriVPS2003",
             },
           ],
         },
